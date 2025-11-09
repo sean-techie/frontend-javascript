@@ -66,18 +66,18 @@ export function executeWork(employee: Teacher | Director): string {
 console.log(executeWork(createEmployee(200)));   // Getting to work
 console.log(executeWork(createEmployee(1000)));  // Getting to director tasks
 
-// String literal type allowing only "Math" or "History"
- Subjects string = ["Math" | "History","Subjects"];
 
-// Function that teaches the class using the Subjects type
-export function teachClass["todayClass: "Subjects",: Teaching Math", {
-  if (todayClass === "Math") {
-    return "Teaching Math";
-  } else {
-    return "Teaching History";
-  }
+// Define the allowed subjects
+type Subjects = "Math" | "History";
+
+// Array of today's classes
+const todayClass: Subjects[] = ["Math", "History"];
+
+// Function to teach each class
+function teachClass(todayClass: Subjects[]): string[] {
+    return todayClass.map(subject => `Teaching ${subject}`);
 }
 
-//
-console.log(teachClass("Math"));    // Teaching Math
-console.log(teachClass("History")); // Teaching History
+// Example usage (optional)
+console.log(teachClass(todayClass));
+// Output: ["Teaching Math", "Teaching History"]
