@@ -1,10 +1,8 @@
-/// <reference path="./Teacher.ts" />
-
-namespace Subjects {
+amespace Subjects {
   export class Subject {
-    teacher!: Teacher; // definite assignment for strict TypeScript
-
-    setTeacher(teacher: Teacher): void {
+    teacher: Teacher;
+    
+    setTeacher(teacher:Teacher): void {
       this.teacher = teacher;
     }
   }
