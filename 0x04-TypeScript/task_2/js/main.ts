@@ -69,17 +69,17 @@ console.log(executeWork(createEmployee(200)));   // Getting to work
 console.log(executeWork(createEmployee(1000)));  // Getting to director tasks
 
 // String literal type allowing only "Math" or "History"
-type Subjects = 'Math' | 'History';
+type Subjects = "Math" | "History";
 
 // Function that teaches the class using the Subjects type
 export function teachClass(todayClass: Subjects): string {
-  if (todayClass === 'Math') {
-    return 'Teaching Math';
+  if (todayClass === "Math") {
+    return "Teaching Math";
   } else {
-    return 'Teaching History';
+    return "Teaching History";
   }
 }
 
 // Example usage
-console.log(teachClass('Math'));    // Teaching Math
-console.log(teachClass('History')); // Teaching History
+console.log(teachClass("Math"));    // Teaching Math
+console.log(teachClass("History")); // Teaching History
