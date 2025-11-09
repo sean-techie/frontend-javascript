@@ -68,3 +68,21 @@ export function executeWork(employee: Teacher | Director): string {
 console.log(executeWork(createEmployee(200)));   // Getting to work
 console.log(executeWork(createEmployee(1000)));  // Getting to director tasks
 
+// String literal type allowing only "Math" or "History"
+type Subjects = 'Math' | 'History';
+
+// Function that teaches the class
+export function teachClass(todayClass: Subjects): string {
+  if (todayClass === 'Math') {
+    return 'Teaching Math';
+  } else if (todayClass === 'History') {
+    return 'Teaching History';
+  } else {
+    // This should never happen if using the type properly
+    return 'Unknown subject';
+  }
+}
+
+// Example usage
+console.log(teachClass('Math'));    // Teaching Math
+console.log(teachClass('History')); // Teaching History
