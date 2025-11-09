@@ -64,4 +64,4 @@ export function executeWork(employee: Teacher | Director): string {
   }
 }
 console.log(executeWork(createEmployee(200)));   // Getting to work
-console.log(executeWork(createEmployee(1000)));  // Getting to director tasks
+console.log(executeWork(createEmployee(1000)));  // Getting to director tasks 
