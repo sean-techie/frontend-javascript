@@ -65,17 +65,3 @@ export function executeWork(employee: Teacher | Director): string {
 }
 console.log(executeWork(createEmployee(200)));   // Getting to work
 console.log(executeWork(createEmployee(1000)));  // Getting to director tasks
-
-
-// Array of subjects
-const Subjects: string[] = ["Math", "History"];
-
-// Function to teach each class
-function teachClass(todayClass: string[]): string[] {
-    return todayClass.map(subject => `Teaching ${subject}`);
-}
-
-// Call the function with the Subjects array
-const result = teachClass(Subjects);
-console.log(result); // ["Teaching Math", "Teaching History"]
-
