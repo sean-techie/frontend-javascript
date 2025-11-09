@@ -1,31 +1,70 @@
 // Interfaces
 interface Teacher {
-  name: string;
-  age: number;
+  workFromHome(): string;
+  getCoffeeBreak(): string;
+  workTeacherTasks(): string;
 }
 
 interface Director extends Teacher {
-  numberOfReports: number;
+  workDirectorTasks(): string;
 }
 
-// Functions to simulate work
-function workTeacherTasks(): void {
-  console.log("Getting to work");
-}
+// Classes
+class DirectorClass implements Director {
+  workFromHome(): string {
+    return "Working from home";
+  }
 
-function workDirectorTasks(): void {
-  console.log("Getting to director tasks");
-}
+  getCoffeeBreak(): string {
+    return "Getting a coffee break";
+  }
 
-// Function to create an employee
-function createEmployee(salary: number): Teacher | Director {
-  if (salary < 1000) {
-    return { name: "John", age: 30 };
-  } else {
-    return { name: "Alice", age: 45, numberOfReports: 5 };
+  workDirectorTasks(): string {
+    return "Getting to director tasks";
+  }
+
+  workTeacherTasks(): string {
+    return ""; // Director doesn’t do teacher tasks
   }
 }
 
-// Type predicate to check if employee is Director
-function isDirector(employee: Teacher | Director): employee is Director {
-  return (employee as Director).numberOfReports !== un
+class TeacherClass implements Teacher {
+  workFromHome(): string {
+    return "Cannot work from home";
+  }
+
+  getCoffeeBreak(): string {
+    return "Cannot have a break";
+  }
+
+  workTeacherTasks(): string {
+    return "Getting to work";
+  }
+}
+
+// Function to create employee
+export function createEmployee(salary: number | string): Teacher | Director {
+  if (typeof salary === "number") {
+    return salary < 1000 ? new TeacherClass() : new DirectorClass();
+  }
+  return new DirectorClass(); // for string salaries like "$500"
+}
+
+// Type predicate
+export function isDirector(employee: Teacher | Director): employee is Director {
+  return (employee as Director).workDirectorTasks !== undefined;
+}
+
+// Execute work
+export function executeWork(employee: Teacher | Director): string {
+  if (isDirector(employee)) {
+    return employee.workDirectorTasks();
+  } else {
+    return employee.workTeacherTasks();
+  }
+}
+
+// Example usage
+console.log(executeWork(createEmployee(200)));   // Getting to work
+console.log(executeWork(createEmployee(1000)));  // Getting to director tasks
+
