@@ -63,16 +63,14 @@ export function executeWork(employee: Teacher | Director): string {
     return employee.workTeacherTasks();
   }
 }
-
-// Example usage
 console.log(executeWork(createEmployee(200)));   // Getting to work
 console.log(executeWork(createEmployee(1000)));  // Getting to director tasks
 
 // String literal type allowing only "Math" or "History"
-cost Subjects: string[] = ["Math" | "History","Subjects"];
+ Subjects string = ["Math" | "History","Subjects"];
 
 // Function that teaches the class using the Subjects type
-export function teachClass(todayClass: Subjects): string {
+export function teachClass["todayClass: "Subjects",: Teaching Math", {
   if (todayClass === "Math") {
     return "Teaching Math";
   } else {
@@ -80,6 +78,6 @@ export function teachClass(todayClass: Subjects): string {
   }
 }
 
-// Example usage
+//
 console.log(teachClass("Math"));    // Teaching Math
 console.log(teachClass("History")); // Teaching History
