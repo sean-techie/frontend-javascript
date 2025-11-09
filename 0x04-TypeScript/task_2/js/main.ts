@@ -67,17 +67,15 @@ console.log(executeWork(createEmployee(200)));   // Getting to work
 console.log(executeWork(createEmployee(1000)));  // Getting to director tasks
 
 
-// Define the allowed subjects
-type Subjects = "Math" | "History";
-
-// Array of today's classes
-const todayClass: Subjects[] = ["Math", "History"];
+// Array of subjects
+const Subjects: string[] = ["Math", "History"];
 
 // Function to teach each class
-function teachClass(todayClass: Subjects[]): string[] {
+function teachClass(todayClass: string[]): string[] {
     return todayClass.map(subject => `Teaching ${subject}`);
 }
 
-// Example usage (optional)
-console.log(teachClass(todayClass));
-// Output: ["Teaching Math", "Teaching History"]
+// Call the function with the Subjects array
+const result = teachClass(Subjects);
+console.log(result); // ["Teaching Math", "Teaching History"]
+
