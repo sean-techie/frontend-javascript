@@ -69,7 +69,7 @@ console.log(executeWork(createEmployee(200)));   // Getting to work
 console.log(executeWork(createEmployee(1000)));  // Getting to director tasks
 
 // String literal type allowing only "Math" or "History"
-type Subjects = "Math" | "History";
+cost Subjects: string[] = ["Math" | "History","Subjects"];
 
 // Function that teaches the class using the Subjects type
 export function teachClass(todayClass: Subjects): string {
